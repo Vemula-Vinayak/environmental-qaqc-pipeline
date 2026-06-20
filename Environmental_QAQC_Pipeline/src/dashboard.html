@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Environmental Data QA/QC & Regulatory Compliance Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  body { font-family: Arial, Helvetica, sans-serif; background:#f3f4f6; margin:0; padding:24px; color:#1f2937; }
+  h1 { font-size:20px; margin-bottom:4px; }
+  .sub { color:#6b7280; margin-bottom:20px; font-size:13px; }
+  .kpis { display:flex; gap:16px; margin-bottom:24px; flex-wrap:wrap; }
+  .kpi { background:white; border-radius:10px; padding:16px 20px; box-shadow:0 1px 3px rgba(0,0,0,0.1); min-width:160px; flex:1; }
+  .kpi .val { font-size:26px; font-weight:bold; }
+  .kpi .label { font-size:12px; color:#6b7280; margin-top:4px; }
+  .grid { display:grid; grid-template-columns: 1fr 1fr; gap:20px; }
+  .card { background:white; border-radius:10px; padding:16px; box-shadow:0 1px 3px rgba(0,0,0,0.1); }
+  .card h3 { margin:0 0 12px; font-size:14px; color:#374151; }
+  .green { color:#16a34a; } .red { color:#dc2626; } .orange { color:#d97706; } .blue { color:#2563eb; }
+</style>
+</head>
+<body>
+<h1>Environmental Data QA/QC &amp; Regulatory Compliance Dashboard</h1>
+<div class="sub">5 sites · 38 monitoring locations · 2,400 analytical records</div>
+
+<div class="kpis">
+  <div class="kpi"><div class="val green">84.3%</div><div class="label">Overall QA/QC Pass Rate</div></div>
+  <div class="kpi"><div class="val red">362</div><div class="label">Regulatory (MCL) Exceedances</div></div>
+  <div class="kpi"><div class="val orange">16.5%</div><div class="label">Exceedance Rate</div></div>
+  <div class="kpi"><div class="val blue">271</div><div class="label">Holding Time Violations</div></div>
+</div>
+
+<div class="grid">
+  <div class="card"><h3>Data Quality Issues by Check Category (% fail)</h3><canvas id="c1"></canvas></div>
+  <div class="card"><h3>MCL Exceedance Rate by Quarter</h3><canvas id="c2"></canvas></div>
+  <div class="card"><h3>MCL Exceedance Rate by Analyte</h3><canvas id="c3"></canvas></div>
+  <div class="card"><h3>MCL Exceedance Rate by Site</h3><canvas id="c4"></canvas></div>
+</div>
+
+<script>
+const palette = ['#2563eb','#d97706','#16a34a','#dc2626','#7c3aed'];
+
+new Chart(document.getElementById('c1'), {
+  type: 'bar',
+  data: { labels: ["Required Field Completeness", "Duplicate Sample ID", "Physically Possible Value Range", "Holding Time Compliance", "Regulatory Threshold (MCL) Compliance"], datasets: [{ label: '% Fail', data: [2.04, 1.92, 1.83, 11.29, 15.08], backgroundColor: palette }] },
+  options: { plugins: { legend: { display:false } }, scales: { y: { beginAtZero:true, title:{display:true, text:'% Fail'} } } }
+});
+
+new Chart(document.getElementById('c2'), {
+  type: 'line',
+  data: { labels: ["2023Q1", "2023Q2", "2023Q3", "2023Q4", "2024Q1", "2024Q2", "2024Q3", "2024Q4", "2025Q1", "2025Q2"], datasets: [{ label:'% Exceedance', data: [13.16, 16.16, 16.46, 13.66, 17.98, 17.6, 22.37, 12.38, 18.05, 16.51], borderColor:'#dc2626', backgroundColor:'rgba(220,38,38,0.1)', tension:0.3, fill:true }] },
+  options: { scales: { y: { beginAtZero:true, title:{display:true, text:'% Exceeding MCL'} } } }
+});
+
+new Chart(document.getElementById('c3'), {
+  type: 'bar',
+  data: { labels: ["Cadmium", "Benzene", "Tetrachloroethylene", "1,1-Dichloroethylene", "Mercury", "Lead", "Trichloroethylene", "Nitrate", "Arsenic", "Chromium", "Vinyl Chloride"], datasets: [{ label:'% Exceedance', data: [19.4, 18.7, 18.4, 18.1, 18.1, 16.3, 16.2, 15.5, 15.4, 13.1, 12.7], backgroundColor:'#2563eb' }] },
+  options: { indexAxis:'y', plugins:{legend:{display:false}}, scales: { x: { beginAtZero:true } } }
+});
+
+new Chart(document.getElementById('c4'), {
+  type: 'bar',
+  data: { labels: ["Former Gas Station - Paterson", "Former Dry Cleaner - Newark", "Industrial Park - Elizabeth", "Rail Yard - Kearny", "Chemical Plant - Linden"], datasets: [{ label:'% Exceedance', data: [17.5, 17.2, 16.3, 16.2, 15.1], backgroundColor:'#16a34a' }] },
+  options: { plugins:{legend:{display:false}}, scales: { y: { beginAtZero:true } } }
+});
+</script>
+</body>
+</html>
