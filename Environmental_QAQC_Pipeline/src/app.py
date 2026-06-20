@@ -14,7 +14,7 @@ Endpoints:
 """
 import os
 import io
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 import pandas as pd
 
 from validation_engine import run_validation, REQUIRED_FIELDS, HOLDING_TIMES, check_required_fields, \
@@ -29,6 +29,11 @@ EXCEEDANCE_PATH = os.path.join(os.path.dirname(__file__), "..", "outputs", "exce
 
 @app.route("/")
 def home():
+    return send_from_directory(os.path.dirname(__file__), "dashboard.html")
+
+
+@app.route("/api")
+def api_info():
     return jsonify({
         "service": "Environmental Data QA/QC & Regulatory Compliance Validation API",
         "endpoints": [
