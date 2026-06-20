@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Environmental Sampling Locations — QA/QC & Regulatory Status</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  body { margin:0; font-family: Arial, sans-serif; }
+  #map { height: 92vh; width: 100%; }
+  #header { padding: 10px 16px; background:#1f2937; color:white; font-size:16px; }
+  .legend { background: white; padding: 8px 12px; border-radius: 6px; line-height: 1.6; font-size: 13px; box-shadow: 0 1px 4px rgba(0,0,0,0.3); }
+  .dot { display:inline-block; width:12px; height:12px; border-radius:50%; margin-right:6px; }
+</style>
+</head>
+<body>
+<div id="header">Environmental Sampling Locations — QA/QC Validation &amp; Regulatory (MCL) Exceedance Status</div>
+<div id="map"></div>
+<script>
+  const points = [{"location_id": "MW-01-01", "site_name": "Former Dry Cleaner - Newark", "latitude": 40.734478, "longitude": -74.165228, "n_samples": 61, "n_qaqc_fail": 5, "n_exceedance": 9, "status": "pass"}, {"location_id": "MW-01-02", "site_name": "Former Dry Cleaner - Newark", "latitude": 40.739647, "longitude": -74.180516, "n_samples": 54, "n_qaqc_fail": 8, "n_exceedance": 10, "status": "exceedance"}, {"location_id": "MW-01-03", "site_name": "Former Dry Cleaner - Newark", "latitude": 40.745212, "longitude": -74.167177, "n_samples": 72, "n_qaqc_fail": 16, "n_exceedance": 11, "status": "exceedance"}, {"location_id": "MW-01-04", "site_name": "Former Dry Cleaner - Newark", "latitude": 40.741421, "longitude": -74.179838, "n_samples": 53, "n_qaqc_fail": 10, "n_exceedance": 8, "status": "exceedance"}, {"location_id": "MW-01-05", "site_name": "Former Dry Cleaner - Newark", "latitude": 40.734708, "longitude": -74.174984, "n_samples": 60, "n_qaqc_fail": 7, "n_exceedance": 11, "status": "exceedance"}, {"location_id": "MW-01-06", "site_name": "Former Dry Cleaner - Newark", "latitude": 40.744235, "longitude": -74.169523, "n_samples": 77, "n_qaqc_fail": 9, "n_exceedance": 11, "status": "pass"}, {"location_id": "MW-03-01", "site_name": "Former Gas Station - Paterson", "latitude": 40.913317, "longitude": -74.174391, "n_samples": 59, "n_qaqc_fail": 13, "n_exceedance": 10, "status": "exceedance"}, {"location_id": "MW-03-02", "site_name": "Former Gas Station - Paterson", "latitude": 40.916191, "longitude": -74.178011, "n_samples": 68, "n_qaqc_fail": 12, "n_exceedance": 11, "status": "exceedance"}, {"location_id": "MW-03-03", "site_name": "Former Gas Station - Paterson", "latitude": 40.909398, "longitude": -74.172286, "n_samples": 57, "n_qaqc_fail": 9, "n_exceedance": 10, "status": "exceedance"}, {"location_id": "MW-03-04", "site_name": "Former Gas Station - Paterson", "latitude": 40.911338, "longitude": -74.168404, "n_samples": 57, "n_qaqc_fail": 12, "n_exceedance": 11, "status": "exceedance"}, {"location_id": "MW-03-05", "site_name": "Former Gas Station - Paterson", "latitude": 40.915543, "longitude": -74.165146, "n_samples": 70, "n_qaqc_fail": 7, "n_exceedance": 9, "status": "pass"}, {"location_id": "MW-03-06", "site_name": "Former Gas Station - Paterson", "latitude": 40.920805, "longitude": -74.175553, "n_samples": 51, "n_qaqc_fail": 6, "n_exceedance": 8, "status": "exceedance"}, {"location_id": "MW-03-07", "site_name": "Former Gas Station - Paterson", "latitude": 40.923445, "longitude": -74.165705, "n_samples": 62, "n_qaqc_fail": 12, "n_exceedance": 9, "status": "qaqc_fail"}, {"location_id": "MW-05-01", "site_name": "Chemical Plant - Linden", "latitude": 40.618079, "longitude": -74.253984, "n_samples": 61, "n_qaqc_fail": 14, "n_exceedance": 5, "status": "qaqc_fail"}, {"location_id": "MW-05-02", "site_name": "Chemical Plant - Linden", "latitude": 40.620734, "longitude": -74.250308, "n_samples": 70, "n_qaqc_fail": 5, "n_exceedance": 10, "status": "pass"}, {"location_id": "MW-05-03", "site_name": "Chemical Plant - Linden", "latitude": 40.620171, "longitude": -74.237532, "n_samples": 57, "n_qaqc_fail": 8, "n_exceedance": 10, "status": "exceedance"}, {"location_id": "MW-05-04", "site_name": "Chemical Plant - Linden", "latitude": 40.616679, "longitude": -74.253434, "n_samples": 56, "n_qaqc_fail": 2, "n_exceedance": 6, "status": "pass"}, {"location_id": "MW-05-05", "site_name": "Chemical Plant - Linden", "latitude": 40.617628, "longitude": -74.248728, "n_samples": 58, "n_qaqc_fail": 9, "n_exceedance": 8, "status": "qaqc_fail"}, {"location_id": "MW-05-06", "site_name": "Chemical Plant - Linden", "latitude": 40.625238, "longitude": -74.243459, "n_samples": 69, "n_qaqc_fail": 14, "n_exceedance": 14, "status": "exceedance"}, {"location_id": "SB-02-01", "site_name": "Industrial Park - Elizabeth", "latitude": 40.670355, "longitude": -74.211832, "n_samples": 75, "n_qaqc_fail": 12, "n_exceedance": 15, "status": "exceedance"}, {"location_id": "SB-02-02", "site_name": "Industrial Park - Elizabeth", "latitude": 40.658445, "longitude": -74.209608, "n_samples": 74, "n_qaqc_fail": 12, "n_exceedance": 8, "status": "qaqc_fail"}, {"location_id": "SB-02-03", "site_name": "Industrial Park - Elizabeth", "latitude": 40.655176, "longitude": -74.204147, "n_samples": 68, "n_qaqc_fail": 11, "n_exceedance": 8, "status": "qaqc_fail"}, {"location_id": "SB-02-04", "site_name": "Industrial Park - Elizabeth", "latitude": 40.666533, "longitude": -74.205538, "n_samples": 58, "n_qaqc_fail": 12, "n_exceedance": 10, "status": "exceedance"}, {"location_id": "SB-02-05", "site_name": "Industrial Park - Elizabeth", "latitude": 40.660991, "longitude": -74.201286, "n_samples": 72, "n_qaqc_fail": 11, "n_exceedance": 7, "status": "qaqc_fail"}, {"location_id": "SB-02-06", "site_name": "Industrial Park - Elizabeth", "latitude": 40.671762, "longitude": -74.205132, "n_samples": 66, "n_qaqc_fail": 11, "n_exceedance": 10, "status": "exceedance"}, {"location_id": "SB-02-07", "site_name": "Industrial Park - Elizabeth", "latitude": 40.657793, "longitude": -74.211366, "n_samples": 61, "n_qaqc_fail": 8, "n_exceedance": 15, "status": "exceedance"}, {"location_id": "SB-02-08", "site_name": "Industrial Park - Elizabeth", "latitude": 40.654776, "longitude": -74.217614, "n_samples": 74, "n_qaqc_fail": 7, "n_exceedance": 9, "status": "pass"}, {"location_id": "SB-02-09", "site_name": "Industrial Park - Elizabeth", "latitude": 40.667561, "longitude": -74.205805, "n_samples": 52, "n_qaqc_fail": 7, "n_exceedance": 7, "status": "pass"}, {"location_id": "SB-04-01", "site_name": "Rail Yard - Kearny", "latitude": 40.76615, "longitude": -74.149633, "n_samples": 50, "n_qaqc_fail": 10, "n_exceedance": 7, "status": "qaqc_fail"}, {"location_id": "SB-04-02", "site_name": "Rail Yard - Kearny", "latitude": 40.77205, "longitude": -74.152605, "n_samples": 58, "n_qaqc_fail": 11, "n_exceedance": 13, "status": "exceedance"}, {"location_id": "SB-04-03", "site_name": "Rail Yard - Kearny", "latitude": 40.762398, "longitude": -74.155253, "n_samples": 70, "n_qaqc_fail": 13, "n_exceedance": 9, "status": "qaqc_fail"}, {"location_id": "SB-04-04", "site_name": "Rail Yard - Kearny", "latitude": 40.774138, "longitude": -74.142103, "n_samples": 61, "n_qaqc_fail": 8, "n_exceedance": 9, "status": "pass"}, {"location_id": "SB-04-05", "site_name": "Rail Yard - Kearny", "latitude": 40.772503, "longitude": -74.139785, "n_samples": 61, "n_qaqc_fail": 8, "n_exceedance": 10, "status": "exceedance"}, {"location_id": "SB-04-06", "site_name": "Rail Yard - Kearny", "latitude": 40.767578, "longitude": -74.144025, "n_samples": 62, "n_qaqc_fail": 2, "n_exceedance": 8, "status": "pass"}, {"location_id": "SB-04-07", "site_name": "Rail Yard - Kearny", "latitude": 40.761196, "longitude": -74.153109, "n_samples": 61, "n_qaqc_fail": 12, "n_exceedance": 11, "status": "exceedance"}, {"location_id": "SB-04-08", "site_name": "Rail Yard - Kearny", "latitude": 40.771768, "longitude": -74.145978, "n_samples": 60, "n_qaqc_fail": 13, "n_exceedance": 13, "status": "exceedance"}, {"location_id": "SB-04-09", "site_name": "Rail Yard - Kearny", "latitude": 40.769705, "longitude": -74.1401, "n_samples": 61, "n_qaqc_fail": 10, "n_exceedance": 6, "status": "qaqc_fail"}, {"location_id": "SB-04-10", "site_name": "Rail Yard - Kearny", "latitude": 40.771094, "longitude": -74.144328, "n_samples": 59, "n_qaqc_fail": 9, "n_exceedance": 4, "status": "qaqc_fail"}];
+  const colors = {"pass": "#2ecc71", "qaqc_fail": "#f39c12", "exceedance": "#e74c3c"};
+
+  const map = L.map('map').setView([40.78, -74.19], 10);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  points.forEach(p => {
+    const color = colors[p.status];
+    const marker = L.circleMarker([p.latitude, p.longitude], {
+      radius: 8, fillColor: color, color: '#333', weight: 1, fillOpacity: 0.85
+    }).addTo(map);
+    marker.bindPopup(
+      `<b>${p.location_id}</b><br/>${p.site_name}<br/>` +
+      `Samples: ${p.n_samples}<br/>` +
+      `QA/QC Failures: ${p.n_qaqc_fail}<br/>` +
+      `Regulatory Exceedances: ${p.n_exceedance}<br/>` +
+      `Status: <b style="color:${color}">${p.status.replace('_',' ').toUpperCase()}</b>`
+    );
+  });
+
+  const legend = L.control({position: 'bottomright'});
+  legend.onAdd = function() {
+    const div = L.DomUtil.create('div', 'legend');
+    div.innerHTML = `
+      <b>Location Status</b><br/>
+      <span class="dot" style="background:#2ecc71"></span>Pass — within limits<br/>
+      <span class="dot" style="background:#f39c12"></span>QA/QC issue flagged<br/>
+      <span class="dot" style="background:#e74c3c"></span>Regulatory exceedance
+    `;
+    return div;
+  };
+  legend.addTo(map);
+</script>
+</body>
+</html>

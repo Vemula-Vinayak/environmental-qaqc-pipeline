@@ -1,0 +1,56 @@
+site_id,site_name,analyte,n_samples,n_exceedances,exceedance_pct
+SITE-02,Industrial Park - Elizabeth,"1,1-Dichloroethylene",48,14,29.17
+SITE-01,Former Dry Cleaner - Newark,Cadmium,35,10,28.57
+SITE-05,Chemical Plant - Linden,Mercury,39,11,28.21
+SITE-03,Former Gas Station - Paterson,Cadmium,32,9,28.12
+SITE-01,Former Dry Cleaner - Newark,Tetrachloroethylene,25,7,28.0
+SITE-04,Rail Yard - Kearny,Benzene,41,10,24.39
+SITE-03,Former Gas Station - Paterson,Benzene,30,7,23.33
+SITE-05,Chemical Plant - Linden,"1,1-Dichloroethylene",26,6,23.08
+SITE-03,Former Gas Station - Paterson,Nitrate,36,8,22.22
+SITE-01,Former Dry Cleaner - Newark,Trichloroethylene,32,7,21.88
+SITE-04,Rail Yard - Kearny,Lead,55,12,21.82
+SITE-03,Former Gas Station - Paterson,Mercury,38,8,21.05
+SITE-05,Chemical Plant - Linden,Arsenic,38,8,21.05
+SITE-02,Industrial Park - Elizabeth,Cadmium,54,11,20.37
+SITE-05,Chemical Plant - Linden,Trichloroethylene,30,6,20.0
+SITE-01,Former Dry Cleaner - Newark,Lead,30,6,20.0
+SITE-03,Former Gas Station - Paterson,Arsenic,40,8,20.0
+SITE-02,Industrial Park - Elizabeth,Tetrachloroethylene,51,10,19.61
+SITE-04,Rail Yard - Kearny,Arsenic,53,10,18.87
+SITE-02,Industrial Park - Elizabeth,Benzene,48,9,18.75
+SITE-04,Rail Yard - Kearny,Vinyl Chloride,43,8,18.6
+SITE-01,Former Dry Cleaner - Newark,Benzene,39,7,17.95
+SITE-03,Former Gas Station - Paterson,Lead,28,5,17.86
+SITE-05,Chemical Plant - Linden,Tetrachloroethylene,34,6,17.65
+SITE-03,Former Gas Station - Paterson,Tetrachloroethylene,34,6,17.65
+SITE-01,Former Dry Cleaner - Newark,"1,1-Dichloroethylene",40,7,17.5
+SITE-04,Rail Yard - Kearny,Mercury,47,8,17.02
+SITE-02,Industrial Park - Elizabeth,Trichloroethylene,48,8,16.67
+SITE-02,Industrial Park - Elizabeth,Chromium,56,9,16.07
+SITE-04,Rail Yard - Kearny,Chromium,50,8,16.0
+SITE-05,Chemical Plant - Linden,Nitrate,32,5,15.62
+SITE-02,Industrial Park - Elizabeth,Nitrate,40,6,15.0
+SITE-04,Rail Yard - Kearny,Tetrachloroethylene,60,9,15.0
+SITE-04,Rail Yard - Kearny,Nitrate,55,8,14.55
+SITE-02,Industrial Park - Elizabeth,Vinyl Chloride,55,8,14.55
+SITE-02,Industrial Park - Elizabeth,Mercury,42,6,14.29
+SITE-03,Former Gas Station - Paterson,Trichloroethylene,36,5,13.89
+SITE-01,Former Dry Cleaner - Newark,Vinyl Chloride,29,4,13.79
+SITE-05,Chemical Plant - Linden,Lead,30,4,13.33
+SITE-04,Rail Yard - Kearny,"1,1-Dichloroethylene",53,7,13.21
+SITE-03,Former Gas Station - Paterson,Vinyl Chloride,38,5,13.16
+SITE-04,Rail Yard - Kearny,Trichloroethylene,55,7,12.73
+SITE-03,Former Gas Station - Paterson,Chromium,36,4,11.11
+SITE-01,Former Dry Cleaner - Newark,Arsenic,27,3,11.11
+SITE-01,Former Dry Cleaner - Newark,Nitrate,28,3,10.71
+SITE-01,Former Dry Cleaner - Newark,Chromium,28,3,10.71
+SITE-01,Former Dry Cleaner - Newark,Mercury,29,3,10.34
+SITE-04,Rail Yard - Kearny,Cadmium,39,4,10.26
+SITE-05,Chemical Plant - Linden,Cadmium,22,2,9.09
+SITE-03,Former Gas Station - Paterson,"1,1-Dichloroethylene",33,3,9.09
+SITE-02,Industrial Park - Elizabeth,Arsenic,57,5,8.77
+SITE-02,Industrial Park - Elizabeth,Lead,38,3,7.89
+SITE-05,Chemical Plant - Linden,Benzene,27,2,7.41
+SITE-05,Chemical Plant - Linden,Chromium,28,2,7.14
+SITE-05,Chemical Plant - Linden,Vinyl Chloride,36,1,2.78

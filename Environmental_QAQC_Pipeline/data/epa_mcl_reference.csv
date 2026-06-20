@@ -1,0 +1,13 @@
+analyte,unit,epa_mcl,method,category,standard_holding_time_days
+Benzene,ug/L,5.0,EPA 8260,VOC,14
+Trichloroethylene,ug/L,5.0,EPA 8260,VOC,14
+Tetrachloroethylene,ug/L,5.0,EPA 8260,VOC,14
+Vinyl Chloride,ug/L,2.0,EPA 8260,VOC,14
+"1,1-Dichloroethylene",ug/L,7.0,EPA 8260,VOC,14
+Lead,ug/L,15.0,EPA 6020,METAL,180
+Arsenic,ug/L,10.0,EPA 6020,METAL,180
+Chromium,ug/L,100.0,EPA 6020,METAL,180
+Cadmium,ug/L,5.0,EPA 6020,METAL,180
+Mercury,ug/L,2.0,EPA 7470,METAL,28
+Nitrate,mg/L,10.0,EPA 300.0,WET_CHEM,2
+pH,SU,,EPA 9040,FIELD,0

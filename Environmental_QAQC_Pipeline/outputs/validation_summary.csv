@@ -1,0 +1,6 @@
+check_category,total_records,pass_count,fail_count,pass_rate_pct,fail_rate_pct
+Required Field Completeness,2400,2351,49,97.96,2.04
+Duplicate Sample ID,2400,2354,46,98.08,1.92
+Physically Possible Value Range,2400,2356,44,98.17,1.83
+Holding Time Compliance,2400,2129,271,88.71,11.29
+Regulatory Threshold (MCL) Compliance,2400,2038,362,84.92,15.08
